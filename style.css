@@ -1,0 +1,130 @@
+.calculator {
+    width: 400px;
+    height: 367px;
+    position: absolute;
+    top: 347px;
+    left: 664px;
+    background-color: #242530; /* dark background, looks cool */
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#display {
+    width: 350px;
+    height: 70px;
+    position: absolute;
+    top: 25px;
+    left: 17px;
+    font-size: 24px;
+    text-align: right;
+    padding: 10px;
+    background-color: #3A3F77; /* new color, hope it looks good */
+    border: none;
+    color: #fff;
+    border-radius: 20px;
+    margin-bottom: 30px; /* more space here, yay! */
+}
+
+.buttons {
+    position: absolute;
+    top: 145px; /* moved down to give space */
+    left: 17px;
+}
+
+.number, .clear {
+    width: 79px;
+    height: 52px;
+    background-color: #404258; /* flat color, no fancy stuff */
+    color: #FFFFFF;
+    border: none;
+    font-size: 18px;
+    border-radius: 20px; /* rounder edges, keeping it simple */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* light bottom shadow, yay! */
+    /* added a tiny shadow at the bottom, hope this looks ok */
+}
+
+.number:hover, .clear:hover {
+    background-color: #50536a; /* hover effect, kinda neat */
+}
+
+.operator {
+    width: 55px;
+    height: 55px; /* made same as width for circle */
+    background-color: #F49D1A; /* flat color */
+    color: #FFFFFF;
+    border: none;
+    font-size: 18px;
+    border-radius: 50%; /* full circle now */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* light bottom shadow */
+    /* hope these look round now! */
+}
+
+.operator:hover {
+    background-color: #ffae2e; /* brighter on hover */
+}
+
+.equals {
+    width: 116px;
+    height: 52px;
+    background-color: #B2B2B2; /* flat color */
+    color: #000000;
+    border: none;
+    font-size: 18px;
+    border-radius: 20px; /* rounder edges */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* light bottom shadow */
+    /* added shadow to this one, hope it fits */
+}
+
+.equals:hover {
+    background-color: #c2c2c2; /* lighter on hover */
+}
+
+/* trying to place buttons, this was tricky and rough */
+.number:nth-child(1) { top: 0; left: 0; } /* 1 */
+.number:nth-child(2) { top: 0; left: 89px; } /* 2 */
+.number:nth-child(3) { top: 0; left: 178px; } /* 3 */
+.operator:nth-child(4) { top: 0; left: 267px; } /* × */
+.operator:nth-child(5) { top: 0; left: 332px; } /* ÷ */
+.number:nth-child(6) { top: 62px; left: 0; } /* 4 */
+.number:nth-child(7) { top: 62px; left: 89px; } /* 5 */
+.number:nth-child(8) { top: 62px; left: 178px; } /* 6 */
+.operator:nth-child(9) { top: 62px; left: 267px; } /* + */
+.operator:nth-child(10) { top: 62px; left: 332px; } /* - */
+.number:nth-child(11) { top: 124px; left: 0; } /* 7 */
+.number:nth-child(12) { top: 124px; left: 89px; } /* 8 */
+.number:nth-child(13) { top: 124px; left: 178px; } /* 9 */
+.operator:nth-child(14) { top: 124px; left: 267px; } /* % */
+.operator:nth-child(15) { top: 124px; left: 332px; } /* ^ */
+.number:nth-child(16) { top: 186px; left: 0; } /* . */
+.number:nth-child(17) { top: 186px; left: 89px; } /* 0 */
+.clear { top: 186px; left: 178px; } /* ⌫ */
+.equals { top: 186px; left: 267px; } /* = */
+
+@media (max-width: 500px) {
+    .calculator {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px;
+    }
+    #display {
+        width: 90%;
+    }
+    .buttons {
+        left: 5%;
+        width: 90%;
+    }
+    .number, .clear, .operator, .equals {
+        width: 18%;
+        height: 40px;
+    }
+} /* trying to make it work on phone, not sure if this is right */
