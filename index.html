@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css"> <!-- hope this works lol -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Refreshed Calculator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="calculator">  <!-- main box -->
-        <input type="text" id="display" readonly> <!-- where numbers show up -->
-        <div class="buttons">  <!-- all the buttons go here -->
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-            <button class="operator">*</button>
-            <button class="operator">/</button>
-            <button class="number">4</button>
-            <button class="number">5</button>
-            <button class="number">6</button>
-            <button class="operator">+</button>
-            <button class="operator">-</button>
-            <button class="number">7</button>
-            <button class="number">8</button>
-            <button class="number">9</button>
-            <button class="operator">%</button>
-            <button class="operator">^</button>
-            <button class="number">.</button>
-            <button class="number">0</button>
-            <button class="clear">⌫</button>
-            <button class="equals" id="equals">=</button>
-        </div>
+  <div class="calculator">
+    <input id="display" type="text" readonly />
+    <div class="buttons">
+      <!-- Row 1 -->
+      <button class="num-btn">1</button>
+      <button class="num-btn">2</button>
+      <button class="num-btn">3</button>
+      <button class="op-btn">×</button>
+      <button class="op-btn">÷</button>
+      <!-- Row 2 -->
+      <button class="num-btn">4</button>
+      <button class="num-btn">5</button>
+      <button class="num-btn">6</button>
+      <button class="op-btn">+</button>
+      <button class="op-btn">−</button>
+      <!-- Row 3 -->
+      <button class="num-btn">7</button>
+      <button class="num-btn">8</button>
+      <button class="num-btn">9</button>
+      <button class="op-btn">%</button>
+      <button class="op-btn">^</button>
+      <!-- Row 4 -->
+      <button class="num-btn">.</button>
+      <button class="num-btn">0</button>
+      <button class="clear-btn">⌫</button>
+      <button class="equals-btn" id="equals">=</button>
     </div>
-    <script src="script.js"></script> <!-- fingers crossed this works -->
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,40 +1,43 @@
-// some vars to keep track of stuff
-let display = document.getElementById('display');
-let currentInput = '0'; 
+const display = document.getElementById('display');
+let expr = '0'; // starting expression
 
-function updateDisplay() {
-    display.value = currentInput; // show what we typed
-    // maybe add a limit later
+function render() {
+  display.value = expr;
 }
 
-document.querySelectorAll('.number').forEach(button => {
-    button.addEventListener('click', () => {
-        if (currentInput === '0') currentInput = ''; // replace zero with new number
-        currentInput += button.textContent; // add the number
-        updateDisplay(); // update the screen
-    });
-});
+// Handle numbers and decimal
+document.querySelectorAll('.num-btn').forEach(btn =>
+  btn.addEventListener('click', () => {
+    if (expr === '0') expr = ''; // remove leading zero
+    expr += btn.textContent;
+    render();
+  })
+);
 
-document.querySelectorAll('.operator').forEach(button => {
-    button.addEventListener('click', () => {
-        currentInput += ' ' + button.textContent + ' '; // add space around operator
-        updateDisplay(); // update again
-        
-    });
-});
+// Handle operator insertion
+document.querySelectorAll('.op-btn').forEach(btn =>
+  btn.addEventListener('click', () => {
+    expr = expr.trim() + ` ${btn.textContent} `;
+    render();
+  })
+);
 
+// Compute result
 document.getElementById('equals').addEventListener('click', () => {
-    try {
-        currentInput = eval(currentInput).toString(); // try to calculate
-        updateDisplay(); // show result
-    } catch (e) {
-        currentInput = 'Oops!'; // error message
-        updateDisplay();
-    }
+  try {
+    const safeExpr = expr
+      .replace(/×/g, '*')
+      .replace(/÷/g, '/')
+      .replace(/−/g, '-');
+    expr = eval(safeExpr).toString();
+  } catch {
+    expr = 'Error';
+  }
+  render();
 });
 
-document.querySelector('.clear').addEventListener('click', () => {
-    currentInput = currentInput.slice(0, -1) || '0'; // backspace, hope this works
-    updateDisplay(); // update screen
-    // maybe add a full clear option later?
+// Backspace (⌫)
+document.querySelector('.clear-btn').addEventListener('click', () => {
+  expr = expr.trim().slice(0, -1) || '0';
+  render();
 });
